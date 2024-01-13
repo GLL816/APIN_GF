@@ -1,18 +1,18 @@
-function [re_phase,phase_spec] = relative_phase_gll(frames, sample_rate)
+function [re_phase,phase_spec] = DRP(frames, sample_rate)
 %input: frames: speech frames cut by enframe in "voicebox" 
 %       sample_rate: the sample_rate for speech
 %output: re_phase: relative_phase (Dynamic relative phase)
 %        phase_spec: phase_spectral
-%By Lili Guo
+
 
 % basefreq = 1000;
 NFFT = 256;
-spec = fft(frames', NFFT); % specÉÏÏÂ¶Ô³Æ£¬È¡Ò»°ëÖµ¼´¿É
-phase_spec = angle(spec(1:NFFT/2+1,:)); %È¡Ò»°ëspecÇóphas
+spec = fft(frames', NFFT); % specä¸Šä¸‹å¯¹ç§°ï¼Œå–ä¸€åŠå€¼å³å¯
+phase_spec = angle(spec(1:NFFT/2+1,:)); %å–ä¸€åŠspecæ±‚phas
 re_phase = zeros(size(phase_spec));
 
-% base_bin = round((NFFT / sample_rate * basefreq) - 1); %Çó³öbase_phaseËùÔÚĞĞ
-% base_phase = phase_spec(base_bin,:); %base_phaseÏàÎ»ĞÅÏ¢
+% base_bin = round((NFFT / sample_rate * basefreq) - 1); %æ±‚å‡ºbase_phaseæ‰€åœ¨è¡Œ
+% base_phase = phase_spec(base_bin,:); %base_phaseç›¸ä½ä¿¡æ¯
 % for cur_bin = 1:size(re_phase,1) % current frequency bin
 %     re_phase(cur_bin,:) = phase_spec(cur_bin,:) - (double(cur_bin)/double(base_bin) * base_phase );
 % end
