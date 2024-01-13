@@ -1,4 +1,4 @@
-function [re_phase,phase_spec] = DRP(frames, sample_rate)
+function [re_phase,phase_spec] = DRP_func(frames, sample_rate)
 %input: frames: speech frames cut by enframe in "voicebox" 
 %       sample_rate: the sample_rate for speech
 %output: re_phase: relative_phase (Dynamic relative phase)
