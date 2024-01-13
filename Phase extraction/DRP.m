@@ -7,12 +7,12 @@ function [re_phase,phase_spec] = DRP(frames, sample_rate)
 
 % basefreq = 1000;
 NFFT = 256;
-spec = fft(frames', NFFT); % spec上下对称，取一半值即可
-phase_spec = angle(spec(1:NFFT/2+1,:)); %取一半spec求phas
+spec = fft(frames', NFFT); % spec
+phase_spec = angle(spec(1:NFFT/2+1,:)); 
 re_phase = zeros(size(phase_spec));
 
-% base_bin = round((NFFT / sample_rate * basefreq) - 1); %求出base_phase所在行
-% base_phase = phase_spec(base_bin,:); %base_phase相位信息
+% base_bin = round((NFFT / sample_rate * basefreq) - 1); 
+% base_phase = phase_spec(base_bin,:); 
 % for cur_bin = 1:size(re_phase,1) % current frequency bin
 %     re_phase(cur_bin,:) = phase_spec(cur_bin,:) - (double(cur_bin)/double(base_bin) * base_phase );
 % end
