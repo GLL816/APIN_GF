@@ -51,7 +51,7 @@ for i=1:length(filelist)
     for L=1:kk
         xx=double(yy(L,:)');  
         xxx=enframe(xx,256,128);  
-        [rp,ps]=DRP(xxx,fs);
+        [rp,ps]=DRP_fuc(xxx,fs);
         z(L,:,:)=rp(1:129,:)';
     end
     DRP{i,:}=z;
